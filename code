@@ -1,0 +1,11 @@
+#!/bin/sh
+
+### variables 
+
+devdir='/home/korosama/Repos'
+
+### script 
+
+cd $devdir &&
+cd $(echo $(/bin/ls | sed 's/^/ /g' | rofi -dmenu) | awk '{print $2}')
+nvim -c "NvimTreeToggle"
