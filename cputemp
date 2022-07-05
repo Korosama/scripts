@@ -2,6 +2,6 @@
 
 ### Script 
 
-temp0=$(cat /sys/class/thermal/thermal_zone0/temp | cut -c 1-2); temp1=$(cat /sys/class/thermal/thermal_zone1/temp | cut -c 1-2)
+temp0=$(cut -c 1-2 /sys/class/thermal/thermal_zone0/temp); temp1=$(cut -c 1-2 /sys/class/thermal/thermal_zone1/temp)
 let avgtemp=(temp0+temp1)/2
 echo "[$avgtemp °C]"

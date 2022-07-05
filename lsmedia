@@ -3,12 +3,10 @@
 ### variables 
 
 mediadir=/home/korosama/Torrents/
-videos=()
 
 ### script 
 
 cd $mediadir &&
-#cd $mediadir
-echo $(echo $(/bin/ls | sed 's/^/ /g' | rofi -dmenu) | sed 's/ //g' | sed 's/ /\ /g')     ### enter main dir of selected media 
-devour mpv $(echo $(/bin/ls | sed 's/^/ /g' | rofi -dmenu) | awk '{print $2}')      ### open chosen video
+cd $(echo $(/bin/ls | sed 's/^/ /g' | rofi -dmenu) | sed 's/ //g')     ### enter main dir of selected media 
+devour xdg-open $(echo $(/bin/ls | sed 's/^/ /g' | rofi -dmenu) | awk '{print $2}')      ### open chosen video
 

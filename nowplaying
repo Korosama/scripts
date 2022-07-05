@@ -1,8 +1,5 @@
 #! /bin/sh
 
 status=$(mpc current | sed 's/^/ /' | sed '2,3d');
-if [ $status =='' ]; then
- echo " Nothing playing "
-else
- echo " $status" | cut -c -35 | sed 's/$/.../g'
-fi
+[ -z "$status" ] && echo " Nothing playing "
+[ -z "$status" ] || echo " $status" | cut -c -35 | sed 's/$/.../g'
