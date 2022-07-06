@@ -1,0 +1,12 @@
+#!/bin/sh 
+
+cooldown=0
+while true 
+do
+  bat=14
+  status=$(grep -icv Discharging /sys/class/power_supply/BAT0/status)
+  [ $bat -lt 15 ] && [ "$status" -eq 0 ] && [ "$cooldown" -eq 0 ] && notify-send "⚠️ Low Battery ! ⚠️" "Battery level below 15%" && cooldown=23;
+  [ "$cooldown" -eq 0 ] || let "cooldown=cooldown-1"
+  sleep 1
+done
+

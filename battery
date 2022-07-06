@@ -1,34 +1,3 @@
 #!/bin/sh 
-### variables
 
-bat=$(cat /sys/class/power_supply/BAT0/capacity)
-sent=0
-cooldown=0
-delay=30             ### Delay in seconds between notification reminders
-### script
-
-while true 
-do
-      echo "[Bat: "$bat"%]"; status=$(acpi -b | grep -i -c discharging)
-
-      if [[ "$status" == "1" ]]
-      then
-            if [ $bat -lt 15 ]
-            then
-                  if  [[ "$sent" == "0" ]]
-                  then 
-                    notify-send ⚠️\ low\ battery\ ⚠️ battery\ level\ below\ 15%\ !
-                    sent=1
-                  else
-                    let "cooldown=cooldown+1"
-                    if [ $cooldown -gt $delay ]
-                    then
-                          sent=0
-                          cooldown=0
-                    fi
-                  fi
-            fi
-      fi
-sleep 1
-
-done
+bat=$(cat /sys/class/power_supply/BAT0/capacity); echo "[Bat: "$bat"%]"

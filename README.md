@@ -1,9 +1,9 @@
 # My Scripts
-Collection of my personal scripts for everyday use
+Collection of my personal minimal scripts for everyday use
 
 * Battery
 
-   Prints percentage of battery left & sends notification if battery reaches a critical level.
+   Prints percentage of battery left.
    
 *  Code
 
@@ -13,14 +13,18 @@ Collection of my personal scripts for everyday use
 
     Prints the average temperature of your cpu.
 
-* lsmedia  
+* Lsmedia  
 
     Same as Code but opens the chosen episode/movie with mpv.
     
-* nowplaying  
+* Nowplaying  
 
-    Prints the current mpd track with a cool icon and prints 'Nothing Playing' if that's the case
+    Prints the current mpd track with a Nerdfont icon and prints 'Nothing Playing' if it's the case.
 
 * Uram  
 
-    Prints the amount of used ram in mb 
+    Prints the amount of used ram in mb. 
+
+* Lowbatnotif
+
+    Daemon that sends a notification every X seconds when your battery percentage is below a given value. 
