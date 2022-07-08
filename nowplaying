@@ -1,5 +1,10 @@
 #! /bin/sh
-
+charlimit=35    ### max length of the Nowplaying string of text 
 status=$(mpc current | sed 's/^/ /' | sed '2,3d');
 [ -z "$status" ] && echo " Nothing playing "
-[ -z "$status" ] || echo " $status" | cut -c -35 | sed 's/$/.../g'
+[ -z "$status" ] || if [ $(echo $status | wc -c) -lt $charlimit ] 
+then
+  echo " $status";
+else
+  echo " $status" | cut -c -$charlimit | sed 's/$/.../g';
+fi
