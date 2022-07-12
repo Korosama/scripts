@@ -1,0 +1,14 @@
+#!/bin/sh
+
+dwmrepo=$HOME/Repos/dwm/ ### Put here the location of your dwm repo
+
+[ -z "$1" ] && echo "Please provide an image as argument." && exit;
+echo -e "Setting wallpaper ... \n"
+feh --bg-fill --no-fehbg $1 && cp $1 $HOME/.local/share/wallpaper && echo -e "done. \n"
+echo -e "Generating colorscheme ... \n"
+wal -s -n -i $1 > /dev/null && sed -i '17d' $HOME/.cache/wal/colors-wal-dwm.h && 
+cp $HOME/.cache/wal/colors.Xresources $HOME/.xresources && xrdb $HOME/.xresources && echo -e "done. \n"
+echo -e "Recompiling dwm ... \n"
+cd $dwmrepo && rm config.h && make clean install >/dev/null && echo -e "done. \n"
+echo -e "All done, please restart dwm."
+
