@@ -13,10 +13,6 @@ Collection of my personal minimal scripts for everyday use
 
     Prints the average temperature of your cpu.
 
-* Lsmedia  
-
-    Same as Code but opens the chosen episode/movie with mpv.
-    
 * Nowplaying  
 
     Prints the current mpd track with a Nerdfont icon and prints 'Nothing Playing' if it's the case.
@@ -28,3 +24,7 @@ Collection of my personal minimal scripts for everyday use
 * Lowbatnotif
 
     Daemon that sends a notification every X seconds when your battery percentage is below a given value. 
+
+* setwal
+
+    Sets your wallpaper, generates a colorscheme w/ pywal, updates your xresources and recompiles your dwm automatically.
