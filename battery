@@ -1,3 +1,5 @@
 #!/bin/sh 
-
-bat=$(cat /sys/class/power_supply/BAT0/capacity); echo "[Bat: "$bat"%]"
+pluged=$(cat /sys/class/power_supply/AC/online)
+[ $pluged -eq "1" ] && status="";
+[ $pluged -eq "0" ] && status="·";
+bat=$(cat /sys/class/power_supply/BAT0/capacity); echo "[$status $bat%]"
